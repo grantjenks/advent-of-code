@@ -37,7 +37,26 @@ def basin_size(row, col):
             visit(row, col)
     visit(row, col)
     return count
+
+def basin_size(row, col):
+    visited = set()
+    count = 0
+    queue = [(row, col)]
+    while queue:
+        pair = queue.pop()
+        if pair in visited:
+            continue
+        visited.add(pair)
+        if nums[pair] == 9:
+            continue
+        count += 1
+        row, col = pair
+        neighbors = [(row-1, col), (row+1, col), (row, col-1), (row, col+1)]
+        queue.extend(neighbors)
+    return count
+
 sizes = []
+
 for (row, col), value in list(nums.items()):
     low_point = (
         value < nums[row-1, col]
@@ -47,5 +66,6 @@ for (row, col), value in list(nums.items()):
     )
     if low_point:
         sizes.append(basin_size(row, col))
+
 sorted(sizes)[-3:]
 114 * 116 * 121
