@@ -12,6 +12,10 @@ for row, line in enumerate(lines):
 cost = {}
 heap = [(0, (0, 0))]
 
+import heapq
+
+diffs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
 while heap:
     risk, xy = heapq.heappop(heap)
     prev = cost.get(xy, float('inf'))
