@@ -1,4 +1,4 @@
-# Part 1
+# Part 1 (copied)
 from itertools import permutations, product
 from operator import itemgetter, pos, neg, sub
 
@@ -58,7 +58,7 @@ while len(aligned) < len(scanners):
 
 print(len(all_aligned))
 
-# Part 2
+# Part 2 (copied)
 print(
     max(
         sum(abs(sub(*diff)) for diff in zip(dist_a, dist_b))
